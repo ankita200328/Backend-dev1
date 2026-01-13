@@ -1,16 +1,12 @@
-function runLengthEncode(str) {
-  let result = "";
-  let count = 1;
-
-  for (let i = 1; i <= str.length; i++) {
-    if (str[i] === str[i - 1]) count++;
-    else {
-      result += str[i - 1] + count;
-      count = 1;
+function firstNonRepeat(str) {
+  for (var i = 0; i < str.length; i++) {
+    if (str.indexOf(str[i]) === str.lastIndexOf(str[i])) {
+      return str[i];
     }
   }
-  return result;
+  return null;
 }
+
 // "aaabbc" → "a3b2c1"
 
 
