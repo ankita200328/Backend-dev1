@@ -1,16 +1,19 @@
+function runLengthEncode(str) {
+  let result = "";
+  let count = 1;
 
-
-// let sen="java is fun";
-// let reversedSen=sen.split(" ").reverse().join(" ");
-// console.log(reversedSen);
-
-
-function isRotation(s1,s2) {
-    if (s1.lenght !==s2.length) {
-        return false;
+  for (let i = 1; i <= str.length; i++) {
+    if (str[i] === str[i - 1]) count++;
+    else {
+      result += str[i - 1] + count;
+      count = 1;
     }
-    return (s1+s2).includes(s2);
+  }
+  return result;
 }
-let s1="ABCD";
-let s2="CDAB";
-console.log(isRotation(s1,s2));
+// "aaabbc" → "a3b2c1"
+
+
+
+
+
