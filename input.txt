@@ -1,0 +1,17 @@
+const fs = require('fs');
+const path = require('path');
+
+const inputPath = path.join(__dirname, 'input.txt');
+const outputPath = path.join(__dirname, 'output.txt');
+
+fs.readFile(inputPath, 'utf8', (err, data) => {
+    if (err) return console.error("Error reading file:", err);
+
+    const words = data.trim().split(/\s+/);
+    const wordCount = data.trim() === "" ? 0 : words.length;
+
+    fs.writeFile(outputPath, `Word Count: ${wordCount}`, (err) => {
+        if (err) return console.error("Error writing file:", err);
+        console.log("Word count written to output.txt");
+    });
+});
