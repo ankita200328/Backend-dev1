@@ -1,0 +1,94 @@
+MongoDb Questions
+  Create a complete Student management FileSystem.
+  Questions:
+  1. Add new student.
+  2. View all students.
+  3. Find student by email .
+  4.Update student GAP .
+  5.Dlete student .
+
+
+  Answers:
+  db.students.insertMany([
+    {
+        name: "Ankita",
+        email: "ankita@gmail.com",
+        age: 21,
+        city: "Prayagraj",
+        department: "CS",
+        gpa: 3.4,
+        courses: ["Math", "DBMS", "CN"]
+
+    },
+    {
+        name: "Rahul",
+        email: "rahul@gmail.com",
+        age: 21,
+        city: "Mumbai",
+        department: "IT",
+        gpa: 3.8,
+        courses: ["Java", "DBMS", "CN", "OS", "AI","ML"]
+
+    }
+  ]);
+
+  1:
+  db.students.insertone({
+    name: "Neha",
+    email: "neha@gmail.com",
+    age: 20,
+    city: "Lucknow",
+    department: "CS",
+    gpa: 3.2,
+    courses: ["Python", "DBMS"]
+  });
+
+  2:
+  db.students.find();
+
+  3:
+  db.students.findOne({email: "ankita@gmail.com"});
+
+  4:
+  db.students.updateOne(
+    {email: "ankita@gamil.com"},
+    {$set: {gpa:3.9}}
+  );
+
+  5:
+  db.students.deleteOne({email: "rahul@gamil.com"});
+
+
+  Exercise 2:
+  1:
+  db.students.find({
+    gpa:{ $gte:3.0, $lte:3.5}
+  });
+
+  2:
+
+  3:
+  db.students.find().sort({gpa: -1}).limit(10);
+
+
+
+  Assment Questions:
+  1.
+  Schema-based structure.
+  Cleaner code.
+  Validation.
+  Easy relationships.
+
+  2.
+  findOneAndUpdate() - update the document.
+  updateOne() - only result status.
+
+  3.
+  middleware = functions that run before or after operations.
+
+  4.
+  Pagination in Mongoose = used to limit data per page (important for large data).
+
+  
+
+
